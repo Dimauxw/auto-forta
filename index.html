@@ -536,44 +536,54 @@
         <div><strong>Adresă</strong>Str. Mecanicilor 14, Chișinău</div>
       </div>
     </div>
-    <form id="bookingForm">
-      <div class="form-row">
-        <div class="field">
-          <label for="nume">Nume</label>
-          <input type="text" id="nume" required>
-        </div>
-        <div class="field">
-          <label for="telefon">Telefon</label>
-          <input type="tel" id="telefon" required>
-        </div>
-      </div>
-      <div class="field">
-        <label for="masina">Marcă & model mașină</label>
-        <input type="text" id="masina" placeholder="ex: Dacia Logan 2016">
-      </div>
-      <div class="field">
-        <label for="serviciu">Serviciu dorit</label>
-        <select id="serviciu">
-          <option>Diagnoză computerizată</option>
-          <option>Mecanică generală</option>
-          <option>Schimb ulei & filtre</option>
-          <option>Electrică auto</option>
-          <option>Tinichigerie & vopsitorie</option>
-          <option>Anvelope & geometrie</option>
-          <option>Altceva</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="mesaj">Descrie problema (opțional)</label>
-        <textarea id="mesaj" placeholder="ex: zgomot ciudat la frânare în viraj"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary submit-btn">Trimite cererea</button>
-      <div class="form-success" id="formSuccess">✓ Cererea a fost trimisă! Te contactăm în cel mai scurt timp.</div>
-      <p class="form-note">Nu stocăm datele — acesta e un formular demonstrativ.</p>
-    </form>
+   <form id="bookingForm" action="https://formspree.io/f/xqpzbwbr" method="POST">
+  <div class="form-row">
+    <div class="field">
+      <label for="nume">Nume</label>
+      <input type="text" id="nume" name="nume" required>
+    </div>
+
+    <div class="field">
+      <label for="telefon">Telefon</label>
+      <input type="tel" id="telefon" name="telefon" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="masina">Marcă & model mașină</label>
+    <input type="text" id="masina" name="masina" placeholder="ex: Dacia Logan 2016">
+  </div>
+
+  <div class="field">
+    <label for="serviciu">Serviciu dorit</label>
+    <select id="serviciu" name="serviciu">
+      <option>Diagnoză computerizată</option>
+      <option>Mecanică generală</option>
+      <option>Schimb ulei & filtre</option>
+      <option>Electrică auto</option>
+      <option>Tinichigerie & vopsitorie</option>
+      <option>Anvelope & geometrie</option>
+      <option>Altceva</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="mesaj">Descrie problema (opțional)</label>
+    <textarea id="mesaj" name="mesaj" placeholder="ex: zgomot ciudat la frânare în viraj"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary submit-btn">Trimite cererea</button>
+
+  <div class="form-success" id="formSuccess">
+    ✓ Cererea a fost trimisă! Te contactăm în cel mai scurt timp.
+  </div>
+
+  <p class="form-note">Datele introduse sunt trimise către Auto Forța pentru a putea răspunde solicitării.</p>
+</form>
   </div>
 </section>
 
+  
 <footer>
   <div class="wrap footer-inner">
     <div class="logo" style="color:#8a8c90;">AUTO <span style="color:var(--orange);">FORȚA</span></div>
@@ -622,12 +632,9 @@
     navLinks.style.gap = '18px';
   });
 
-  // form demo submit
-  document.getElementById('bookingForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    document.getElementById('formSuccess').style.display = 'block';
-    this.reset();
-  });
+  document.getElementById('bookingForm').addEventListener('submit', function(){
+  document.getElementById('formSuccess').style.display = 'block';
+});
 </script>
 
 </body>
